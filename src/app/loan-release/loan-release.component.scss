@@ -1,0 +1,23 @@
+.title {
+    font-size: 61px;
+    font-weight: 100;
+    color: rgb(141, 138, 138);
+    display: block;
+}
+
+.content {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.centered {
+    position: relative;
+    height: 150px;
+    text-align: center;
+    &>mat-spinner {
+        margin: auto;
+    }
+}

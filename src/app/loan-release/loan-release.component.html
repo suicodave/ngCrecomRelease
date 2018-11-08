@@ -1,0 +1,16 @@
+<div class="content">
+
+  <div class="centered">
+
+    <div class="title">
+      Credit Committee Releases
+    </div>
+
+    <button mat-raised-button color="primary" *ngIf="!isLoading" (click)="generate()">Generate</button>
+    <mat-spinner color="accent" strokeWidth="4" *ngIf="isLoading"></mat-spinner>
+
+  </div>
+
+
+
+</div>

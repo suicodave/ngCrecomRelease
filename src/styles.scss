@@ -2,6 +2,7 @@
 
 @import '~material-icons/iconfont/material-icons.css';
 @import '~roboto-fontface/css/roboto/roboto-fontface.css';
+@import 'theme.scss';
 html,
 body {
     height: 100%;
@@ -10,4 +11,8 @@ body {
 body {
     margin: 0;
     font-family: 'Roboto', ;
+}
+
+mat-sidenav-container {
+    height: 100%;
 }

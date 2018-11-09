@@ -44,7 +44,7 @@ export class LoanReleaseComponent implements OnInit, OnDestroy {
     const blob = new Blob([csvReport], { type: 'text/csv;charset=utf-8' });
     const date = formatDate(Date.now(), 'E, MMM dd, yyyy hh:mm a', 'en');
     const fileSaver = FileSaver;
-    fileSaver.saveAs(blob, `Crecom Releases ${date}`);
+    fileSaver.saveAs(blob, `Crecom Releases ${date}.csv`);
   }
 
   ngOnDestroy() {

@@ -9,6 +9,7 @@ import { LoanReleaseComponent } from './loan-release/loan-release.component';
 import { PapaParseModule } from 'ngx-papaparse';
 import { HttpClientModule } from '@angular/common/http';
 import { LoanReleaseModalComponent } from './modals/loan-release-modal/loan-release-modal.component';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import { LoanReleaseModalComponent } from './modals/loan-release-modal/loan-rele
     BrowserAnimationsModule,
     MaterialModule,
     PapaParseModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-loan-release-modal',
@@ -6,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./loan-release-modal.component.scss']
 })
 export class LoanReleaseModalComponent implements OnInit {
-
-  constructor() { }
+  form: FormGroup;
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
+    this.form = this.fb.group({
+      startDate: ['', Validators.required],
+      endDate: ['', Validators.required]
+    });
+  }
+
+  formSubmit(form) {
+    if (!form.valid) {
+      return false;
+    }
   }
 
 }

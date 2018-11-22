@@ -1,0 +1,9 @@
+mat-dialog-content {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+mat-dialog-actions {
+    display: flex;
+    flex-direction: row-reverse;
+}

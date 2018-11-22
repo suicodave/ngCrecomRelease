@@ -1,3 +1,20 @@
-<p>
-  loan-release-modal works!
-</p>
+<form [formGroup]="form" (ngSubmit)="formSubmit(form)">
+  <mat-dialog-content>
+    <mat-form-field color="accent">
+      <input matInput formControlName="startDate" [matDatepicker]="startDatePicker" placeholder="Choose a date">
+      <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+      <mat-datepicker #startDatePicker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field color="accent">
+      <input matInput formControlName="endDate" [matDatepicker]="endDatePicker" placeholder="Choose a date">
+      <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+      <mat-datepicker #endDatePicker></mat-datepicker>
+    </mat-form-field>
+
+  </mat-dialog-content>
+
+  <mat-dialog-actions>
+    <button mat-dialog-close mat-button>Generate</button>
+    <button mat-dialog-close mat-button>Cancel</button>
+  </mat-dialog-actions>
+</form>

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 // tslint:disable-next-line:max-line-length
-import { MatCardModule, MatSidenavModule, MatButtonModule, MatProgressSpinnerModule, MatSnackBarModule, MatDialogModule } from '@angular/material';
+import { MatCardModule, MatSidenavModule, MatButtonModule, MatProgressSpinnerModule, MatSnackBarModule, MatDialogModule, MatDatepickerModule, MatFormFieldModule, MatNativeDateModule, MatInputModule } from '@angular/material';
 @NgModule({
   declarations: [],
   imports: [
@@ -11,7 +11,11 @@ import { MatCardModule, MatSidenavModule, MatButtonModule, MatProgressSpinnerMod
     MatButtonModule,
     MatProgressSpinnerModule,
     MatSnackBarModule,
-    MatDialogModule
+    MatDialogModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
+    MatInputModule
   ],
   exports: [
     MatCardModule,
@@ -19,7 +23,11 @@ import { MatCardModule, MatSidenavModule, MatButtonModule, MatProgressSpinnerMod
     MatButtonModule,
     MatProgressSpinnerModule,
     MatSnackBarModule,
-    MatDialogModule
+    MatDialogModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
+    MatInputModule
   ]
 })
 export class MaterialModule { }

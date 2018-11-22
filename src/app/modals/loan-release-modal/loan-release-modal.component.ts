@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoanReleaseService } from 'src/app/services/loan-release.service';
-import { formatDate } from '@angular/common';
-import { MatDialog, MatDialogRef } from '@angular/material';
+import { MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-loan-release-modal',
@@ -27,8 +26,8 @@ export class LoanReleaseModalComponent implements OnInit {
     }
 
     const params = {
-      startDate: formatDate(form.value.startDate, 'LLddyyyy', 'en'),
-      endDate: formatDate(form.value.endDate, 'LLddyyyy', 'en')
+      startDate: form.value.startDate,
+      endDate: form.value.endDate
     };
     this.loanReleaseService.onLoanRelease(params);
     this.dialogRef.close();

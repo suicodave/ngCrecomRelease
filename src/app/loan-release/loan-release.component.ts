@@ -19,38 +19,54 @@ export class LoanReleaseComponent implements OnInit, OnDestroy {
   constructor(private snackBar: MatSnackBar, private loanReleaseService: LoanReleaseService, private csvParser: Papa, private dialog: MatDialog) { }
 
   ngOnInit() {
+    this.loanReleaseService.loanReleaseEvent.subscribe(
+      (response: any) => {
+        const queryParams = {
+          startDate: formatDate(response.startDate, 'LLddyyyy', 'en'),
+          endDate: formatDate(response.endDate, 'LLddyyyy', 'en')
+        };
+
+        const friendlyDates = {
+          startDate: formatDate(response.startDate, 'mediumDate', 'en'),
+          endDate: formatDate(response.endDate, 'mediumDate', 'en')
+        };
+        const fileName = `Crecom Release ${friendlyDates.startDate} - ${friendlyDates.endDate}`;
+        this.generate(queryParams, fileName);
+
+      }
+    );
   }
 
   openModal() {
     this.dialog.open(LoanReleaseModalComponent);
   }
 
-  generate() {
+  generate(queryParams, fileName) {
     this.isLoading = true;
 
-    // this.loanServiceSubscription = this.loanReleaseService.fetch().subscribe(
-    //   (res: any) => {
-    //     this.downloadData(res.data);
-    //     this.isLoading = false;
-    //     this.snackBar.open('Report has been exported successfully.', 'Ok', {
-    //       duration: 5000
-    //     });
-    //   },
-    //   (err) => {
-    //     this.isLoading = false;
-    //     this.snackBar.open('Failed to export report! Please try again.', 'Ok', {
-    //       duration: 5000
-    //     });
-    //   }
-    // );
+    this.loanServiceSubscription = this.loanReleaseService.fetch(queryParams).subscribe(
+      (res: any) => {
+        this.downloadData(res.data, fileName);
+        this.isLoading = false;
+        this.snackBar.open('Report has been exported successfully.', 'Ok', {
+          duration: 5000
+        });
+      },
+      (err) => {
+        this.isLoading = false;
+        this.snackBar.open('Failed to export report! Please try again.', 'Ok', {
+          duration: 5000
+        });
+      }
+    );
   }
 
-  downloadData(data) {
+  downloadData(data, filename) {
     const csvReport = this.csvParser.unparse(data);
     const blob = new Blob([csvReport], { type: 'text/csv;charset=utf-8' });
     const date = formatDate(Date.now(), 'E, MMM dd, yyyy hh:mm a', 'en');
     const fileSaver = FileSaver;
-    fileSaver.saveAs(blob, `Crecom Releases ${date}.csv`);
+    fileSaver.saveAs(blob, `${filename}.csv`);
   }
 
   ngOnDestroy() {

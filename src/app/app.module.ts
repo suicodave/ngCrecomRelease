@@ -8,10 +8,12 @@ import { MaterialModule } from './material/material.module';
 import { LoanReleaseComponent } from './loan-release/loan-release.component';
 import { PapaParseModule } from 'ngx-papaparse';
 import { HttpClientModule } from '@angular/common/http';
+import { LoanReleaseModalComponent } from './modals/loan-release-modal/loan-release-modal.component';
 @NgModule({
   declarations: [
     AppComponent,
-    LoanReleaseComponent
+    LoanReleaseComponent,
+    LoanReleaseModalComponent
   ],
   imports: [
     BrowserModule,
@@ -22,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [LoanReleaseModalComponent]
 })
 export class AppModule { }

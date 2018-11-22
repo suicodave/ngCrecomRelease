@@ -16,4 +16,4 @@ export const environment = {
  */
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
 
-export const apiUrl = 'http://119.92.119.170:8888/GLQueueManager/api/';
+export const apiUrl = 'http://119.92.119.170:8888/GLGenerator/api/';
